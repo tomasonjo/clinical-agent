@@ -2,6 +2,8 @@
 
 This project is designed for a simple LLM agent with tools on a clinical knowledge graph in Neo4j.
 
+![Workflow diagram](https://raw.githubusercontent.com/tomasonjo/clinical-agent/main/static/clinical.png)
+
 ## Setup
 
 1. Download and restore the [Clinical database dump](https://drive.google.com/file/d/1r5mHYuDjl-ilB8_vqgCqMUnziqGbOete/view?usp=drive_link).
@@ -16,9 +18,9 @@ docker compose up
 
 ## Example questions
 
-1. What are associated foods with cancer?
-2. What are known clinically relevant gene variants for gene CLN3?
-3. In which tissues are expressed proteins associated with prostate carcinoma?
+*  What are associated foods with cancer?
+*  What are known clinically relevant gene variants for gene CLN3?
+*  In which tissues are expressed proteins associated with prostate carcinoma?
 
 ## Todo
 
