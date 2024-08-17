@@ -6,17 +6,17 @@ from langchain.agents.output_parsers import OpenAIFunctionsAgentOutputParser
 from langchain.prompts import ChatPromptTemplate, MessagesPlaceholder
 from langchain.pydantic_v1 import BaseModel, Field
 from langchain.schema import AIMessage, HumanMessage
-from langchain.tools.render import format_tool_to_openai_function
+from langchain_core.utils.function_calling import convert_to_openai_function
 from langchain_openai import ChatOpenAI
 
 from neo4j_clinical_layer.associated_food_tool import AssociatedFoodTool
 from neo4j_clinical_layer.disease_tissue_tool import DiseaseTissueTool
 from neo4j_clinical_layer.gene_variant_tool import GeneVariantTool
 
-llm = ChatOpenAI(temperature=0, model="gpt-4-turbo", streaming=True)
+llm = ChatOpenAI(temperature=0, model="gpt-4o", streaming=True)
 tools = [AssociatedFoodTool(), GeneVariantTool(), DiseaseTissueTool()]
 
-llm_with_tools = llm.bind(functions=[format_tool_to_openai_function(t) for t in tools])
+llm_with_tools = llm.bind(functions=[convert_to_openai_function(t) for t in tools])
 
 prompt = ChatPromptTemplate.from_messages(
     [
